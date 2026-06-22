@@ -23,5 +23,8 @@ require __DIR__.'/auth.php';
 
 Route::get('/', [HomeController::class, 'index']);
 
-
+Route::view('/projects', 'projects');
+Route::view('/journal', 'journal');
+Route::view('/about', 'about');
+Route::view('/youtube', 'youtube');
 
