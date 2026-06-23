@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProjectController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,4 +28,7 @@ Route::view('/projects', 'projects');
 Route::view('/journal', 'journal');
 Route::view('/about', 'about');
 Route::view('/youtube', 'youtube');
+
+Route::get('/projects', [ProjectController::class, 'index']);
+Route::get('/projects/{slug}', [ProjectController::class, 'show']);
 

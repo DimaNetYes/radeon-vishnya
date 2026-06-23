@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,11 +14,7 @@ class HomeController extends Controller
         $subtitle = 'Разработчик, экспериментатор и человек, который пытается разобраться в жизни через код, игры и истории.';
         $subsubtitle = "Здесь лежат мои проекты, мысли, игры и попытки построить что-то настоящее.";
 
-        $projects = [
-            'Lucky Wheel',
-            'Airplane Prototype',
-            'My Future Project',
-        ];
+        $projects = Project::all();
 
         return view('home', compact('title', 'subtitle', 'subsubtitle', 'projects'));
     }

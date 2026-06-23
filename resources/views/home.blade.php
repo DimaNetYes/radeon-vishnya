@@ -21,7 +21,7 @@
 
     <ul>
         @foreach ($projects as $project)
-            <li>{{ $project }}</li>
+            <li>{{ $project->title }}</li>
         @endforeach
     </ul>
 
