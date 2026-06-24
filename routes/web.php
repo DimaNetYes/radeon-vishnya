@@ -19,7 +19,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 
 Route::get('/', [HomeController::class, 'index']);
@@ -30,5 +30,26 @@ Route::view('/about', 'about');
 Route::view('/youtube', 'youtube');
 
 Route::get('/projects', [ProjectController::class, 'index']);
+Route::get('/projects/create', [ProjectController::class, 'create']);
+Route::post('/projects', [ProjectController::class, 'store']);
 Route::get('/projects/{slug}', [ProjectController::class, 'show']);
+//update
+Route::get(
+    '/projects/{slug}/edit',
+    [ProjectController::class, 'edit']
+);
+
+Route::patch(
+    '/projects/{slug}',
+    [ProjectController::class, 'update']
+);
+//update end
+//DELETE
+Route::delete(
+    '/projects/{slug}',
+    [ProjectController::class, 'destroy']
+);
+//END DELETE
+
+
 
