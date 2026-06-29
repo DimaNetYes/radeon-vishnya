@@ -2,6 +2,12 @@
 
 @section('content')
 
+    @if ($project->image)
+
+        <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}" width="100">
+
+    @endif
+
     <h1>{{ $project->title }}</h1>
 
     <p>{{ $project->description }}</p>

@@ -14,27 +14,11 @@
 
     <h1>Создать проект</h1>
 
-    <form method="POST" action="/projects">
+    <form method="POST" action="/projects" enctype="multipart/form-data">
 
         @csrf
-
-        <p>
-            <input type="text" name="title" placeholder="Название проекта" value="{{ old('title') }}">
-            @error('title')
-                <p>{{ $message }}</p>
-            @enderror
-        </p>
-
-        <p>
-            <input type="text" name="slug" placeholder="Slug" value="{{ old('slug') }}">
-            @error('slug')
-                <p>{{ $message }}</p>
-            @enderror
-        </p>
-
-        <p>
-            <textarea name="description" placeholder="Описание">{{ old('description') }}</textarea>
-        </p>
+        //connect _form.blade
+        @include('projects._form')
 
         <button type="submit">
             Создать

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -32,6 +33,14 @@ class ProjectController extends Controller
         //Validation
         $request = request();
 
+        $imagePath = null;
+        if (request()->hasFile('image')) {
+
+            $imagePath = request()
+                ->file('image')
+                ->store('projects', 'public');
+        }
+
         $request->validate([
             'title' => 'required|min:3',
             'slug' => 'required|unique:projects',
@@ -42,6 +51,7 @@ class ProjectController extends Controller
             'title' => request('title'),
             'slug' => request('slug'),
             'description' => request('description'),
+            'image' => $imagePath,
         ]);
 
         return redirect('/projects');
@@ -72,10 +82,24 @@ class ProjectController extends Controller
             'slug' => 'required',
         ]);
 
+        //check the old image
+        $imagePath = $project->image;
+
+        if (request()->hasFile('image')) {
+            if ($project->image) {
+                Storage::disk('public')->delete($project->image);
+            }
+
+            $imagePath = request()
+                ->file('image')
+                ->store('projects', 'public');
+        }
+
         $project->update([
             'title' => request('title'),
             'slug' => request('slug'),
             'description' => request('description'),
+            'image' => $imagePath,
         ]);
 
         return redirect(
@@ -90,6 +114,11 @@ class ProjectController extends Controller
             'slug',
             $slug
         )->firstOrFail();
+        
+        //Удаление картинки
+        if ($project->image) {
+            Storage::disk('public')->delete($project->image);
+        }
 
         $project->delete();
 

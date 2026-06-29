@@ -4,22 +4,12 @@
 
     <h1>Редактирование проекта</h1>
 
-    <form method="POST" action="/projects/{{ $project->slug }}">
+    <form method="POST" action="/projects/{{ $project->slug }}" enctype="multipart/form-data">
 
         @csrf
         @method('PATCH')
 
-        <p>
-            <input type="text" name="title" value="{{ old('title', $project->title) }}">
-        </p>
-
-        <p>
-            <input type="text" name="slug" value="{{ old('slug', $project->slug) }}">
-        </p>
-
-        <p>
-            <textarea name="description">{{ old('description', $project->description) }}</textarea>
-        </p>
+        @include('projects._form')
 
         <button type="submit">
             Сохранить
