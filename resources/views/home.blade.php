@@ -5,37 +5,40 @@
 
 @section('content')
 
-    <section class="min-h-[700px] flex items-center">
+    <section class="min-h-[700px] flex items-center bg-cover bg-center relative"
+        style="background-image: url('{{ asset('images/hero/bg2.png') }}');">
 
-        <div class="max-w-md">
+<!-- Div make the dark style for background. Its working like a section have class relative, then div, then next div have a relative class -->
+        <div class="absolute inset-0 bg-black/30"></div> 
 
-            <h1 class="text-6xl font-bold"> {{ $title }}</h1>
+            <div class="max-w-md mx-10 relative">
 
-            <p class="mt-6 text-xl text-red-600">
-                {{ $subtitle}}
-            </p>
+                <h1 class="text-6xl font-bold text-red-100"> {{ $title }}</h1>
 
-            <p class="mt-4 text-gray-400">
-                {{ $subsubtitle }}
-            </p>
+                <p class="mt-6 text-xl text-red-600">
+                    {{ $subtitle}}
+                </p>
 
-            <div class="mt-10 flex gap-4">
+                <p class="mt-4 text-gray-400">
+                    {{ $subsubtitle }}
+                </p>
 
-                <a href="/projects" class="bg-red-600 text-white px-6 py-3 rounded-lg">
-                    Проекты
-                </a>
+                <div class="mt-10 flex gap-4">
 
-                <a href="https://youtube.com" class="border px-6 py-3 rounded-lg">
-                    YouTube
-                </a>
+                    <a href="/projects" class="bg-red-600 text-white px-6 py-3 rounded-lg">
+                        Проекты
+                    </a>
 
-            </div>
+                    <a href="https://youtube.com" class="border px-6 py-3 rounded-lg text-red-100">
+                        ▶️ YouTube
+                    </a>
 
+                </div>
         </div>
 
     </section>
 
-    <section class="py-24">
+    <section class="">
 
         <div class="grid grid-cols-3 gap-16 bg-orange-100">
 

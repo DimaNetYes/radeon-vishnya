@@ -17,7 +17,7 @@
             </div>
 
 
-            <nav class="flex gap-8">
+            <nav class="flex gap-8 pr-2">
                 <a href="/">Главная</a>
                 <a href="/projects">Проекты</a>
                 <a href="/journal">Журнал</a>
@@ -30,7 +30,7 @@
 
     </header>
 
-    <main class="max-w-7xl mx-auto p-8">
+    <main class="max-w-7xl mx-auto ">
         @yield('content')
     </main>
 
