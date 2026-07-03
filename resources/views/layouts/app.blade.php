@@ -12,7 +12,7 @@
         <div class="max-w-7xl mx-auto flex justify-between items-center px-5 py-5">
             <div class="text-2xl font-bold">
 
-                🍒 Radeon Vishnya
+                <a href="/">🍒 Radeon Vishnya</a>
 
             </div>
 

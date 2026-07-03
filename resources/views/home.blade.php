@@ -8,32 +8,32 @@
     <section class="min-h-[700px] flex items-center bg-cover bg-center relative"
         style="background-image: url('{{ asset('images/hero/bg2.png') }}');">
 
-<!-- Div make the dark style for background. Its working like a section have class relative, then div, then next div have a relative class -->
-        <div class="absolute inset-0 bg-black/30"></div> 
+        <!-- Div make the dark style for background. Its working like a section have class relative, then div, then next div have a relative class -->
+        <div class="absolute inset-0 bg-black/30"></div>
 
-            <div class="max-w-md mx-10 relative">
+        <div class="max-w-md mx-12 relative">
 
-                <h1 class="text-6xl font-bold text-red-100"> {{ $title }}</h1>
+            <h1 class="text-6xl font-bold text-red-100"> {{ $title }}</h1>
 
-                <p class="mt-6 text-xl text-red-600">
-                    {{ $subtitle}}
-                </p>
+            <p class="mt-6 text-xl text-red-600">
+                {{ $subtitle}}
+            </p>
 
-                <p class="mt-4 text-gray-400">
-                    {{ $subsubtitle }}
-                </p>
+            <p class="mt-4 text-gray-400">
+                {{ $subsubtitle }}
+            </p>
 
-                <div class="mt-10 flex gap-4">
+            <div class="mt-10 flex gap-4">
 
-                    <a href="/projects" class="bg-red-600 text-white px-6 py-3 rounded-lg">
-                        Проекты
-                    </a>
+                <a href="/projects" class="bg-red-600 text-white px-6 py-3 rounded-lg">
+                    Проекты
+                </a>
 
-                    <a href="https://youtube.com" class="border px-6 py-3 rounded-lg text-red-100">
-                        ▶️ YouTube
-                    </a>
+                <a href="https://youtube.com" class="border px-6 py-3 rounded-lg text-red-100">
+                    ▶️ YouTube
+                </a>
 
-                </div>
+            </div>
         </div>
 
     </section>
@@ -84,13 +84,32 @@
 
 
 
-    <h2 class="text-4xl font-bold mb-8">Мои проекты</h2>
+    <section class="py-4 px-10 projects">
 
-    <div class="grid grid-cols-3 gap-8">
-        @foreach ($projects as $project)
-            <x-project-card :project="$project" />
-        @endforeach
-    </div>
+        <div class="flex justify-between items-center mb-5">
+
+            <h2 class="text-4xl font-bold text-red-100">
+                Мои проекты
+            </h2>
+            <hr>
+
+            <a href="/projects" class="text-red-600 font-semibold hover:text-red-700 transition">
+                Смотреть все проекты →
+            </a>
+
+        </div>
+
+        <div class="grid grid-cols-3 gap-8">
+
+            @foreach($projects as $project)
+
+                <x-project-card :project="$project" />
+
+            @endforeach
+
+        </div>
+
+    </section>
 
 
 @endsection('content')
