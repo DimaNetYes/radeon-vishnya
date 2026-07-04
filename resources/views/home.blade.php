@@ -111,5 +111,62 @@
 
     </section>
 
+    <section class="py-8 px-10">
+
+        <div class="grid grid-cols-2 gap-16">
+
+            <div>
+
+                <h2 class="text-4xl font-bold text-orange-100">
+                    Бортовой журнал
+                </h2>
+
+                <div class="w-10 h-0.5 bg-red-600 rounded my-4"></div>
+
+                <div class="space-y-6">
+
+                    <x-journal-item />
+
+                    <x-journal-item />
+
+                    <x-journal-item />
+
+                </div>
+
+                <a href="/journal" class="inline-block mt-8 text-red-600 font-semibold hover:text-red-700 transition">
+                    Читать все записи →
+                </a>
+
+            </div>
+
+            <div>
+
+                <h2 class="text-4xl font-bold text-orange-100">
+                    YouTube
+                </h2>
+
+                <div class="w-10 h-0.5 bg-red-600 rounded my-4"></div>
+
+                <div class="grid grid-cols-3 gap-4">
+
+                    <x-youtube-item />
+
+                    <x-youtube-item />
+
+                    <x-youtube-item />
+
+                </div>
+
+                <a href="https://youtube.com"
+                    class="inline-block mt-8 border border-red-600 text-red-600 px-5 py-2 rounded-lg hover:bg-red-600 hover:text-white transition">
+                    ▶ Перейти на канал
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
 
 @endsection('content')
