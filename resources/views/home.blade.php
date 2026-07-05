@@ -5,7 +5,7 @@
 
 @section('content')
 
-    <section class="min-h-[700px] flex items-center bg-cover bg-center relative"
+    <section class="min-h-[750px] pt-24 flex items-center bg-cover bg-center relative"
         style="background-image: url('{{ asset('images/hero/bg2.png') }}');">
 
         <!-- Div make the dark style for background. Its working like a section have class relative, then div, then next div have a relative class -->
@@ -25,11 +25,11 @@
 
             <div class="mt-10 flex gap-4">
 
-                <a href="/projects" class="bg-red-600 text-white px-6 py-3 rounded-lg">
+                <a href="/projects" class="bg-red-600 text-white px-6 py-3 rounded-lg transition hover:bg-red-800 hover:text-white">
                     Проекты
                 </a>
 
-                <a href="https://youtube.com" class="border px-6 py-3 rounded-lg text-red-100">
+                <a href="https://youtube.com" class="border px-6 py-3 rounded-lg text-red-100 transition hover:bg-red-600 hover:text-white">
                     ▶️ YouTube
                 </a>
 
@@ -63,7 +63,7 @@
 
             </div>
 
-            <div class="space-y-4 pt-2">
+            <div class="space-y-4 pt-2 pr-5">
 
                 <x-feature-card icon="💻" title="Веб-разработка" description="Создаю сайты и полезные штуки. " />
 
@@ -111,9 +111,9 @@
 
     </section>
 
-    <section class="py-8 px-10">
+    <section class="py-8 px-10 border-y border-gray-700">
 
-        <div class="grid grid-cols-2 gap-16">
+        <div class="grid grid-cols-2 gap-16 divide-x divide-gray-700">
 
             <div>
 
@@ -139,7 +139,7 @@
 
             </div>
 
-            <div>
+            <div class="pl-5">
 
                 <h2 class="text-4xl font-bold text-orange-100">
                     YouTube
