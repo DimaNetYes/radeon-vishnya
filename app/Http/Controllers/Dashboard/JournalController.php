@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Dashboard;
 
-use App\Models\JournalEntry;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\JournalEntry;
 use Illuminate\Support\Facades\Storage;
+use Cocur\Slugify\Slugify;
 
 
-class JournalEntryController extends Controller
+class JournalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +18,7 @@ class JournalEntryController extends Controller
     {
         $journals = JournalEntry::latest()->get();
 
-        return view('journal.index', compact('journals'));
+        return view('dashboard.journal.index', compact('journals'));
     }
 
     /**
@@ -25,7 +26,7 @@ class JournalEntryController extends Controller
      */
     public function create()
     {
-        return view('journal.create', [
+        return view('dashboard.journal.create', [
 
             'journal' => new JournalEntry()
 
@@ -40,7 +41,6 @@ class JournalEntryController extends Controller
 
         request()->validate([
             'title' => 'required|min:3',
-            'slug' => 'required|unique:journal_entries,slug',
             'excerpt' => 'required',
             'content' => 'required',
             'image' => 'nullable|image',
@@ -55,11 +55,22 @@ class JournalEntryController extends Controller
                 ->store('journal', 'public');
         }
 
+        //translitaration from russian to english
+        $slugify = new Slugify();
+        $slug = $slugify->slugify(request('title'));
+        //if there are two identical articles, then fitst_title to first_title2
+        $originalSlug = $slug;
+        $i = 2;
+        while (JournalEntry::where('slug', $slug)->exists()) {
+            $slug = $originalSlug . '-' . $i;
+            $i++;
+        }
+
         JournalEntry::create([
 
             'title' => request('title'),
 
-            'slug' => request('slug'),
+            'slug' => $slug,
 
             'excerpt' => request('excerpt'),
 
@@ -71,7 +82,8 @@ class JournalEntryController extends Controller
 
         ]);
 
-        return redirect('/journal');
+
+        return redirect('/dashboard/journal');
 
     }
 
@@ -85,23 +97,9 @@ class JournalEntryController extends Controller
             $slug
         )->firstOrFail();
 
-        //Предыдущая и следующая статья
-        $previous = JournalEntry::where('id', '<', $journal->id)
-            ->latest('id')
-            ->first();
-
-        $next = JournalEntry::where('id', '>', $journal->id)
-            ->oldest('id')
-            ->first();
-
-
         return view(
-            'journal.show',
-            compact(
-                'journal',
-                'previous',
-                'next'
-            )
+            'dashboard.journal.show',
+            compact('journal')
         );
     }
 
@@ -116,7 +114,7 @@ class JournalEntryController extends Controller
         )->firstOrFail();
 
         return view(
-            'journal.edit',
+            'dashboard.journal.edit',
             compact('journal')
         );
     }
@@ -133,7 +131,6 @@ class JournalEntryController extends Controller
 
         request()->validate([
             'title' => 'required|min:3',
-            'slug' => 'required',
             'excerpt' => 'required',
             'content' => 'required',
             'image' => 'nullable|image',
@@ -154,11 +151,22 @@ class JournalEntryController extends Controller
                 ->store('journal', 'public');
         }
 
+        //translitaration from russian to english
+        $slugify = new Slugify();
+        $slug = $slugify->slugify(request('title'));
+        //if there are two identical articles, then fitst_title to first_title2
+        $originalSlug = $slug;
+        $i = 2;
+        while (JournalEntry::where('slug', $slug)->exists()) {
+            $slug = $originalSlug . '-' . $i;
+            $i++;
+        }
+
         $journal->update([
 
             'title' => request('title'),
 
-            'slug' => request('slug'),
+            'slug' => $slug,
 
             'excerpt' => request('excerpt'),
 
@@ -168,7 +176,7 @@ class JournalEntryController extends Controller
 
         ]);
 
-        return redirect('/journal/' . $journal->slug);
+        return redirect('/dashboard/journal');
     }
 
     /**
@@ -189,6 +197,6 @@ class JournalEntryController extends Controller
 
         $journal->delete();
 
-        return redirect('/journal');
+        return redirect('/dashboard/journal');
     }
 }

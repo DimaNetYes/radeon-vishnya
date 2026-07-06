@@ -25,12 +25,20 @@
 
             <div class="mt-10 flex gap-4">
 
-                <a href="/projects" class="bg-red-600 text-white px-6 py-3 rounded-lg transition hover:bg-red-800 hover:text-white">
+                <a href="/projects"
+                    class="bg-red-600 text-white px-6 py-3 rounded-lg transition hover:bg-red-800 hover:text-white">
                     Проекты
                 </a>
 
-                <a href="https://youtube.com" class="border px-6 py-3 rounded-lg text-red-100 transition hover:bg-red-600 hover:text-white">
-                    ▶️ YouTube
+                <a href="https://www.youtube.com/@radeonvischnya" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 border px-6 py-3 rounded-lg text-red-100 transition hover:bg-red-600 hover:text-white">
+                    <svg class="w-4 h-4 fill-current" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <title>YouTube</title>
+                        <path
+                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+
+                    </svg>
+                    <span>YouTube</span>
                 </a>
 
             </div>
@@ -84,7 +92,8 @@
 
 
 
-    <section class="py-4 px-10 projects">
+    <section class="py-4 px-10 projects bg-cover bg-center"
+        style="background-image:url('{{ asset('images/backgrounds/bg2.png') }}')">
 
         <div class="flex justify-between items-center mb-5">
 
@@ -111,7 +120,8 @@
 
     </section>
 
-    <section class="py-8 px-10 border-y border-gray-700">
+    <section class="py-8 px-10 border-y border-gray-700 bg-cover bg-center"
+        style="background-image:url('{{ asset('images/backgrounds/bg1.png') }}')">
 
         <div class="grid grid-cols-2 gap-16 divide-x divide-gray-700">
 
@@ -125,11 +135,11 @@
 
                 <div class="space-y-6">
 
-                    <x-journal-item />
+                    @foreach($journals as $journal)
 
-                    <x-journal-item />
+                        <x-journal-item :journal="$journal" />
 
-                    <x-journal-item />
+                    @endforeach
 
                 </div>
 
@@ -149,17 +159,23 @@
 
                 <div class="grid grid-cols-3 gap-4">
 
-                    <x-youtube-item />
+                    @foreach($videos as $video)
 
-                    <x-youtube-item />
+                        <x-youtube-item :video="$video" />
 
-                    <x-youtube-item />
+                    @endforeach
 
                 </div>
 
-                <a href="https://youtube.com"
-                    class="inline-block mt-8 border border-red-600 text-red-600 px-5 py-2 rounded-lg hover:bg-red-600 hover:text-white transition">
-                    ▶ Перейти на канал
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer"
+                    class="inline-flex items-center gap-2 mt-8 border border-red-600 text-red-600 px-5 py-2 rounded-lg hover:bg-red-600 hover:text-white transition">
+                    <svg class="w-4 h-4 fill-current" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <title>YouTube</title>
+                        <path
+                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+
+                    </svg>
+                    <span>Перейти на канал</span>
                 </a>
 
             </div>

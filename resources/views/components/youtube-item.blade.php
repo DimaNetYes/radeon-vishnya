@@ -1,17 +1,19 @@
 <div>
+    @php
+        // Ограничить длину заголовка
+        use Illuminate\Support\Str;
+    @endphp
 
-    <img
-        src="{{ asset('images/youtube/demo.jpg') }}"
-        alt=""
-        class="rounded-lg"
-    >
+    <a href="{{ $video['url'] }}" target="_blank">
 
-    <h3 class="font-semibold mt-3">
-        Делаю игру с нуля
-    </h3>
+        <img src="{{ $video['thumbnail'] }}" alt="{{ $video['title'] }}" class="rounded-lg w-full">
 
-    <p class="text-sm text-gray-500">
-        1,2 тыс. просмотров
-    </p>
+        <h3 class="mt-3 font-semibold text-white font-semibold line-clamp-2">
+            {{ $video['title'] }}
+        </h3>
+        
+        <div class="mt-5 text-gray-600">{{ $video['published'] }}</div>
+        
+    </a>
 
 </div>

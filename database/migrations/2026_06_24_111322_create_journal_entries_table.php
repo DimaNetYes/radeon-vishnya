@@ -11,17 +11,19 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('journal_entries', function (Blueprint $table) {
-            $table->id();
+           $table->id();
 
             $table->string('title');
 
             $table->string('slug')->unique();
 
-            $table->text('description');
+            $table->text('excerpt');
+
+            $table->longText('content');
 
             $table->string('image')->nullable();
 
-            $table->longText('content');
+            $table->timestamp('published_at')->nullable();
 
             $table->timestamps();
         });

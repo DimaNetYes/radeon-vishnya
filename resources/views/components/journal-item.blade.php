@@ -1,24 +1,25 @@
-<div class="flex gap-4">
+<a href="/journal/{{ $journal->slug }}" class="flex block gap-4 hover:bg-zinc-800 rounded-xl p-2 transition ">
 
-    <img src="{{ asset('images/journal/demo.jpg') }}" alt="" class="w-24 h-20 rounded-lg object-cover">
+    @if($journal->image)
+        <img src="{{ asset('storage/' . $journal->image) }}" class="w-24 h-20 rounded-lg object-cover">
+    @endif
 
     <div class="flex-1">
         <div class="flex justify-between items-start">
 
             <h3 class="font-semibold text-red-600">
-                Неделя «Не случайное письмо»
+                {{ $journal->title }}
             </h3>
 
-            <span class="text-xs text-gray-400 mt-2">
-                18.05.2025
+            <span class="text-gray-500">
+                {{ $journal->published_at->format('d.m.Y') }}
             </span>
         </div>
 
-        <p class="text-sm mt-2 text-gray-600 max-w-sm ">
-            История одного конверта, который перевернул несколько дней моей жизни.
+        <p class="text-white">
+            {{ $journal->excerpt }}
         </p>
-
 
     </div>
 
-</div>
+</a>
