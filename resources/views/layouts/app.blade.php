@@ -3,12 +3,14 @@
 
 <head>
     <title>Radeon Vishnya</title>
+    <link rel="icon" type="image/png" href="{{ asset('Fav48x48.png') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-gray-800">
+<body class="bg-gray-800 min-h-screen flex flex-col">
 
-    <header id="header" class="fixed top-0 left-0 w-full z-50 bg-black/20 backdrop-blur-md border-b border-white/10 text-white shadow-black/20 transition-transform duration-300 ">
+    <header id="header"
+        class="fixed top-0 left-0 w-full z-50 bg-black/20 backdrop-blur-md border-b border-white/10 text-white shadow-black/20 transition-transform duration-300 ">
         <div class="max-w-7xl mx-auto flex justify-between items-center px-5 py-5">
             <div class="text-2xl font-bold">
 
@@ -21,7 +23,9 @@
                 <a href="/" class="pb-1 border-b-2 border-transparent hover:border-red-600 transition">Главная</a>
                 <a href="/projects" class="border-b-2 border-transparent hover:border-red-600 transition">Проекты</a>
                 <a href="/journal" class="border-b-2 border-transparent hover:border-red-600 transition">Журнал</a>
-                <a href="https://www.youtube.com/@radeonvischnya/videos" class="border-b-2 border-transparent hover:border-red-600 transition" target="_blank" rel="noopener noreferrer">Youtube</a>
+                <a href="https://www.youtube.com/@radeonvischnya/videos"
+                    class="border-b-2 border-transparent hover:border-red-600 transition" target="_blank"
+                    rel="noopener noreferrer">Youtube</a>
                 <a href="/about" class="border-b-2 border-transparent hover:border-red-600 transition">Обо мне</a>
             </nav>
 
@@ -30,7 +34,7 @@
 
     </header>
 
-    <main class="max-w-7xl mx-auto ">
+    <main class="flex-1 w-full max-w-7xl mx-auto ">
         @yield('content')
     </main>
 
@@ -55,7 +59,8 @@
 
             <div class="flex justify-center gap-8 mt-8">
 
-                <a href="https://www.youtube.com/@radeonvischnya/featured" target="_blank" rel="noopener noreferrer" class="hover:text-red-600 transition">
+                <a href="https://www.youtube.com/@radeonvischnya/featured" target="_blank" rel="noopener noreferrer"
+                    class="hover:text-red-600 transition">
                     <svg class="w-7 h-7 fill-current" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <title>YouTube</title>
                         <path
@@ -63,7 +68,7 @@
                     </svg>
                 </a>
 
-                <a href="#" class="hover:text-red-600 transition">
+                <a href="https://t.me/RadeonVishnya" target="_blank" rel="noopener noreferrer" class="hover:text-red-600 transition">
                     <svg class="w-7 h-7 fill-current" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <title>Telegram</title>
                         <path
@@ -71,7 +76,7 @@
                     </svg>
                 </a>
 
-                <a href="#" class="hover:text-red-600 transition">
+                <a href="https://github.com/DimaNetYes" target="_blank" rel="noopener noreferrer" class="hover:text-red-600 transition">
                     <svg class="w-7 h-7 fill-current" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <title>GitHub</title>
                         <path

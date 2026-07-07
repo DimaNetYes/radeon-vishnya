@@ -26,14 +26,18 @@ class ProjectController extends Controller
 
     public function create()
     {
-        return view('dashboard.projects.create');
+        return view('dashboard.projects.create', [
+
+            'project' => new Project()
+
+        ]);
     }
 
     public function store()
     {
         //Validation
         $request = request();
-
+    
         //Slugify
         $slugify = new Slugify();
         $slug = $slugify->slugify(request('title'));
@@ -55,7 +59,6 @@ class ProjectController extends Controller
 
         $request->validate([
             'title' => 'required|min:3',
-            'slug' => 'required|unique:projects',
         ]);
         //validation end
 
@@ -122,6 +125,10 @@ class ProjectController extends Controller
             'slug' => $slug,
             'description' => request('description'),
             'image' => $imagePath,
+            'telegram_url' => request('telegram_url'),
+            'github_url' => request('github_url'),
+            'demo_url' => request('demo_url'),
+            'apk_url' => request('apk_url'),
         ]);
 
         return redirect(

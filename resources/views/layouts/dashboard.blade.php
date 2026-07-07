@@ -3,6 +3,7 @@
 
 <head>
     <title>Dashboard</title>
+    <link rel="icon" type="image/png" href="{{ asset('Fav48x48.png') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 

@@ -2,9 +2,9 @@
 
 @section('content')
 
-<section class="pt-32 pb-12">
+<section class="pt-32 pb-12 min-h-screen bg-cover bg-center" style="background-image:url('{{ asset('images/backgrounds/bg1.png') }}')">
 
-    <h1 class="text-5xl font-bold text-white mb-10">
+    <h1 class="text-5xl font-bold text-white mb-10 text-center">
 
         Бортовой журнал
 

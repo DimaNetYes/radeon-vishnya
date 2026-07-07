@@ -11,5 +11,9 @@ class Project extends Model
         'slug',
         'description',
         'image',
+        'github_url',
+        'telegram_url',
+        'demo_url',
+        'apk_url',
     ];
 }

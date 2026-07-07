@@ -2,6 +2,16 @@
 
 @section('content')
 
+ @if ($errors->any())
+
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+
+    @endif
+
 <h1 class="text-4xl font-bold mb-8">
 
     Новый проект

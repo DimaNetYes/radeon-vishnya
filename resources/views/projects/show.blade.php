@@ -23,6 +23,37 @@
             {{ $project->description }}
 
         </p>
+            <!-- Project anchor for apk, telegram, browser -->
+        <div class="flex flex-wrap gap-4 mt-10">
+
+            @if($project->telegram_url)
+                <a href="{{ $project->telegram_url }}" target="_blank" rel="noopener noreferrer"
+                    class="bg-sky-500 text-white px-5 py-3 rounded-lg">
+                    🚀 Telegram
+                </a>
+            @endif
+
+            @if($project->demo_url)
+                <a href="{{ $project->demo_url }}" target="_blank" rel="noopener noreferrer"
+                    class="bg-green-600 text-white px-5 py-3 rounded-lg">
+                    🌍 Демо
+                </a>
+            @endif
+
+            @if($project->github_url)
+                <a href="{{ $project->github_url }}" target="_blank" rel="noopener noreferrer"
+                    class="bg-zinc-800 text-white px-5 py-3 rounded-lg">
+                    💻 GitHub
+                </a>
+            @endif
+        
+            @if($project->apk_url)
+                <a href="{{ $project->apk_url }}" target="_blank" rel="noopener noreferrer"
+                    class="bg-orange-600 text-white px-5 py-3 rounded-lg">
+                    📱 APK
+                </a>
+            @endif
+        </div>
 
         <!-- previous next Project -->
         <div class="flex justify-between mt-16">
