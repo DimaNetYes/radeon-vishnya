@@ -167,7 +167,7 @@
 
                 </div>
 
-                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.youtube.com/@radeonvischnya/videos" target="_blank" rel="noopener noreferrer"
                     class="inline-flex items-center gap-2 mt-8 border border-red-600 text-red-600 px-5 py-2 rounded-lg hover:bg-red-600 hover:text-white transition">
                     <svg class="w-4 h-4 fill-current" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <title>YouTube</title>

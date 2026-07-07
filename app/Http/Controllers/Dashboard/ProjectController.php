@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use Illuminate\Support\Facades\Storage;
+use Cocur\Slugify\Slugify; //translitaration slug
 
 class ProjectController extends Controller
 {
@@ -33,6 +34,17 @@ class ProjectController extends Controller
         //Validation
         $request = request();
 
+        //Slugify
+        $slugify = new Slugify();
+        $slug = $slugify->slugify(request('title'));
+        $originalSlug = $slug;
+        $i = 2;
+        while (Project::where('slug', $slug)->exists()) {
+            $slug = $originalSlug . '-' . $i;
+            $i++;
+        }
+        //ENDSlugify
+
         $imagePath = null;
         if (request()->hasFile('image')) {
 
@@ -49,7 +61,7 @@ class ProjectController extends Controller
 
         Project::create([
             'title' => request('title'),
-            'slug' => request('slug'),
+            'slug' => $slug,
             'description' => request('description'),
             'image' => $imagePath,
         ]);
@@ -79,7 +91,6 @@ class ProjectController extends Controller
 
         request()->validate([
             'title' => 'required|min:3',
-            'slug' => 'required',
         ]);
 
         //check the old image
@@ -95,9 +106,20 @@ class ProjectController extends Controller
                 ->store('projects', 'public');
         }
 
+        //Slugify
+        $slugify = new Slugify();
+        $slug = $slugify->slugify(request('title'));
+        $originalSlug = $slug;
+        $i = 2;
+        while (Project::where('slug', $slug)->exists()) {
+            $slug = $originalSlug . '-' . $i;
+            $i++;
+        }
+        //ENDSlugify
+
         $project->update([
             'title' => request('title'),
-            'slug' => request('slug'),
+            'slug' => $slug,
             'description' => request('description'),
             'image' => $imagePath,
         ]);
@@ -114,7 +136,7 @@ class ProjectController extends Controller
             'slug',
             $slug
         )->firstOrFail();
-        
+
         //Удаление картинки
         if ($project->image) {
             Storage::disk('public')->delete($project->image);

@@ -1,35 +1,45 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('content')
 
-    @if ($project->image)
+    <article class="max-w-5xl">
 
-        <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}" width="100">
+        @if($project->image)
 
-    @endif
+            <img src="{{ asset('storage/' . $project->image) }}" class="w-full rounded-xl mb-8">
 
-    <h1>{{ $project->title }}</h1>
+        @endif
 
-    <p>{{ $project->description }}</p>
+        <h1 class="text-5xl font-bold">
 
-    <p>
-        Slug: {{ $project->slug }}
+            {{ $project->title }}
 
-        <a href="/projects/{{ $project->slug }}/edit">
-            Редактировать
-        </a>
-    </p>
+        </h1>
 
-    <form method="POST" action="/projects/{{ $project->slug }}">
+        <div class="w-10 h-0.5 bg-red-600 rounded my-5"></div>
 
-        @csrf
+        <p class="text-zinc-300 leading-8">
 
-        @method('DELETE')
+            {{ $project->description }}
 
-        <button type="submit">
-            Удалить
-        </button>
+        </p>
 
-    </form>
+        <div class="mt-10 flex gap-4">
+
+            <a href="/dashboard/projects/{{ $project->slug }}/edit" class="bg-blue-600 px-5 py-3 rounded-lg">
+
+                ✏️ Редактировать
+
+            </a>
+
+            <a href="/dashboard/projects" class="bg-zinc-700 px-5 py-3 rounded-lg">
+
+                ← Назад
+
+            </a>
+
+        </div>
+
+    </article>
 
 @endsection

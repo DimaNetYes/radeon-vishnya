@@ -20,7 +20,20 @@ class ProjectController extends Controller
     {
         $project = Project::where('slug', $slug)->firstOrFail();
 
-        return view('projects.show', compact('project'));
+        // previous and next project
+        $previous = Project::where('id', '<', $project->id)
+            ->latest('id')
+            ->first();
+
+        $next = Project::where('id', '>', $project->id)
+            ->oldest('id')
+            ->first();
+
+        return view('projects.show', compact(
+            'project',
+            'previous',
+            'next'
+        ));
     }
 
     public function create()
@@ -114,7 +127,7 @@ class ProjectController extends Controller
             'slug',
             $slug
         )->firstOrFail();
-        
+
         //Удаление картинки
         if ($project->image) {
             Storage::disk('public')->delete($project->image);

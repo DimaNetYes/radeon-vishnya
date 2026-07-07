@@ -2,34 +2,72 @@
 
 @section('content')
 
-    @if ($project->image)
+    <section class="max-w-5xl mx-auto pt-32 pb-20">
 
-        <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}" width="100">
+        @if($project->image)
 
-    @endif
+            <img src="{{ asset('storage/' . $project->image) }}" class="w-full rounded-xl mb-10">
 
-    <h1>{{ $project->title }}</h1>
+        @endif
 
-    <p>{{ $project->description }}</p>
+        <h1 class="text-5xl font-bold text-white">
 
-    <p>
-        Slug: {{ $project->slug }}
+            {{ $project->title }}
 
-        <a href="/projects/{{ $project->slug }}/edit">
-            Редактировать
-        </a>
-    </p>
+        </h1>
 
-    <form method="POST" action="/projects/{{ $project->slug }}">
+        <div class="w-10 h-0.5 bg-red-600 rounded my-5"></div>
 
-        @csrf
+        <p class="text-gray-300 leading-8 text-lg">
 
-        @method('DELETE')
+            {{ $project->description }}
 
-        <button type="submit">
-            Удалить
-        </button>
+        </p>
 
-    </form>
+        <!-- previous next Project -->
+        <div class="flex justify-between mt-16">
+
+            <div>
+
+                @if($previous)
+
+                    <a href="/projects/{{ $previous->slug }}" class="text-red-600">
+
+                        ← {{ $previous->title }}
+
+                    </a>
+
+                @endif
+
+            </div>
+
+            <div>
+
+                @if($next)
+
+                    <a href="/projects/{{ $next->slug }}" class="text-red-600">
+
+                        {{ $next->title }} →
+
+                    </a>
+
+                @endif
+
+            </div>
+
+        </div>
+
+        <div class="mt-12">
+
+            <a href="/projects"
+                class="inline-flex items-center gap-2 border border-red-600 text-red-600 px-5 py-3 rounded-lg hover:bg-red-600 hover:text-white transition">
+
+                ← Все проекты
+
+            </a>
+
+        </div>
+
+    </section>
 
 @endsection

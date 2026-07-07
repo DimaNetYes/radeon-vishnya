@@ -1,19 +1,19 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('content')
 
-    <h1>Редактирование проекта</h1>
+    <h1 class="text-4xl font-bold mb-8">
 
-    <form method="POST" action="/projects/{{ $project->slug }}" enctype="multipart/form-data">
+        Редактировать проект
+
+    </h1>
+
+    <form action="/dashboard/projects/{{ $project->slug }}" method="POST" enctype="multipart/form-data">
 
         @csrf
         @method('PATCH')
 
-        @include('projects._form')
-
-        <button type="submit">
-            Сохранить
-        </button>
+        @include('dashboard.projects._form')
 
     </form>
 
