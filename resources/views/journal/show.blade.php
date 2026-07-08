@@ -6,7 +6,7 @@
 
         <h1 class="text-5xl font-bold text-white">
 
-            {{ $journal->title }}
+            {{ $journal->localized_title }}
 
         </h1>
 
@@ -24,7 +24,7 @@
 
         <div class="text-gray-300 leading-8 whitespace-pre-line">
 
-            {{ $journal->content }}
+            {{ $journal->localized_content }}
 
         </div>
 

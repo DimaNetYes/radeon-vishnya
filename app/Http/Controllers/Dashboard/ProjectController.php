@@ -26,6 +26,7 @@ class ProjectController extends Controller
 
     public function create()
     {
+
         return view('dashboard.projects.create', [
 
             'project' => new Project()
@@ -37,7 +38,7 @@ class ProjectController extends Controller
     {
         //Validation
         $request = request();
-    
+
         //Slugify
         $slugify = new Slugify();
         $slug = $slugify->slugify(request('title'));
@@ -64,8 +65,15 @@ class ProjectController extends Controller
 
         Project::create([
             'title' => request('title'),
+            'title_en' => request('title_en'),
+            'title_de' => request('title_de'),
+
             'slug' => $slug,
+
             'description' => request('description'),
+            'description_en' => request('description_en'),
+            'description_de' => request('description_de'),
+
             'image' => $imagePath,
         ]);
 
@@ -122,8 +130,15 @@ class ProjectController extends Controller
 
         $project->update([
             'title' => request('title'),
+            'title_en' => request('title_en'),
+            'title_de' => request('title_de'),
+
             'slug' => $slug,
+
             'description' => request('description'),
+            'description_en' => request('description_en'),
+            'description_de' => request('description_de'),
+            
             'image' => $imagePath,
             'telegram_url' => request('telegram_url'),
             'github_url' => request('github_url'),

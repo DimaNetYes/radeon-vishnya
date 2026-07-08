@@ -16,17 +16,22 @@
 
                 <a href="/">🍒 Radeon Vishnya</a>
 
+                <a href="/language/ru" class="border">RU</a>
+
+                <a href="/language/en" class="border">EN</a>
+
             </div>
 
 
             <nav class="flex gap-8 pr-2 ">
-                <a href="/" class="pb-1 border-b-2 border-transparent hover:border-red-600 transition">Главная</a>
-                <a href="/projects" class="border-b-2 border-transparent hover:border-red-600 transition">Проекты</a>
-                <a href="/journal" class="border-b-2 border-transparent hover:border-red-600 transition">Журнал</a>
+                <a href="/" class="pb-1 border-b-2 border-transparent hover:border-red-600 transition">{{ __('messages.home') }}</a>
+                <a href="/projects"
+                    class="border-b-2 border-transparent hover:border-red-600 transition">{{ __('messages.projects') }}</a>
+                <a href="/journal" class="border-b-2 border-transparent hover:border-red-600 transition">{{ __('messages.journal') }}</a>
                 <a href="https://www.youtube.com/@radeonvischnya/videos"
                     class="border-b-2 border-transparent hover:border-red-600 transition" target="_blank"
                     rel="noopener noreferrer">Youtube</a>
-                <a href="/about" class="border-b-2 border-transparent hover:border-red-600 transition">Обо мне</a>
+                <!-- <a href="/about" class="border-b-2 border-transparent hover:border-red-600 transition">Обо мне</a> -->
             </nav>
 
 
@@ -68,7 +73,8 @@
                     </svg>
                 </a>
 
-                <a href="https://t.me/RadeonVishnya" target="_blank" rel="noopener noreferrer" class="hover:text-red-600 transition">
+                <a href="https://t.me/RadeonVishnya" target="_blank" rel="noopener noreferrer"
+                    class="hover:text-red-600 transition">
                     <svg class="w-7 h-7 fill-current" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <title>Telegram</title>
                         <path
@@ -76,7 +82,8 @@
                     </svg>
                 </a>
 
-                <a href="https://github.com/DimaNetYes" target="_blank" rel="noopener noreferrer" class="hover:text-red-600 transition">
+                <a href="https://github.com/DimaNetYes" target="_blank" rel="noopener noreferrer"
+                    class="hover:text-red-600 transition">
                     <svg class="w-7 h-7 fill-current" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <title>GitHub</title>
                         <path

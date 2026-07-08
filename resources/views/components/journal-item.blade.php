@@ -8,7 +8,7 @@
         <div class="flex justify-between items-start">
 
             <h3 class="font-semibold text-red-600">
-                {{ $journal->title }}
+                {{  $journal->localized_title }}
             </h3>
 
             <span class="text-gray-500">
@@ -17,7 +17,7 @@
         </div>
 
         <p class="text-white">
-            {{ $journal->excerpt }}
+            {{  $journal->localized_excerpt }}
         </p>
 
     </div>

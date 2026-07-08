@@ -69,12 +69,18 @@ class JournalController extends Controller
         JournalEntry::create([
 
             'title' => request('title'),
+            'title_en' => request('title_en'),
+            'title_de' => request('title_de'),
 
             'slug' => $slug,
 
             'excerpt' => request('excerpt'),
+            'excerpt_en' => request('excerpt_en'),
+            'excerpt_de' => request('excerpt_de'),
 
             'content' => request('content'),
+            'content_en' => request('content_en'),
+            'content_de' => request('content_de'),
 
             'image' => $imagePath,
 
@@ -165,12 +171,18 @@ class JournalController extends Controller
         $journal->update([
 
             'title' => request('title'),
+            'title_en' => request('title_en'),
+            'title_de' => request('title_de'),
 
             'slug' => $slug,
 
             'excerpt' => request('excerpt'),
+            'excerpt_en' => request('excerpt_en'),
+            'excerpt_de' => request('excerpt_de'),
 
             'content' => request('content'),
+            'content_en' => request('content_en'),
+            'content_de' => request('content_de'),
 
             'image' => $imagePath,
 

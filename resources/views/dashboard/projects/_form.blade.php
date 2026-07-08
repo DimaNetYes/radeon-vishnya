@@ -1,16 +1,67 @@
+<!-- title 3 language -->
 <div class="mb-6">
+
+    <label class="block mb-2 text-zinc-400">
+        Название (RU)
+    </label>
 
     <input type="text" name="title" placeholder="Название проекта" value="{{ old('title', $project->title ?? '') }}"
         class="w-full bg-zinc-800 rounded-lg p-3">
 
 </div>
-
 <div class="mb-6">
+
+    <label class="block mb-2 text-zinc-400">
+        Title (EN)
+    </label>
+
+    <input type="text" name="title_en" value="{{ old('title_en', $project->title_en ?? '') }}"
+        class="w-full bg-zinc-800 rounded-lg p-3">
+
+</div>
+<div class="mb-6">
+
+    <label class="block mb-2 text-zinc-400">
+        Titel (DE)
+    </label>
+
+    <input type="text" name="title_de" value="{{ old('title_de', $project->title_de ?? '') }}"
+        class="w-full bg-zinc-800 rounded-lg p-3">
+
+</div>
+
+<!-- Description 3 languages -->
+<div class="mb-6">
+
+    <label class="block mb-2 text-zinc-400">
+        Описание (RU)
+    </label>
 
     <textarea name="description" rows="6" placeholder="Описание проекта"
         class="w-full bg-zinc-800 rounded-lg p-3">{{ old('description', $project->description ?? '') }}</textarea>
 
 </div>
+<div class="mb-6">
+
+    <label class="block mb-2 text-zinc-400">
+        Description (EN)
+    </label>
+
+    <textarea name="description_en" rows="5"
+        class="w-full bg-zinc-800 rounded-lg p-3">{{ old('description_en', $project->description_en ?? '') }}</textarea>
+
+</div>
+<div class="mb-6">
+
+    <label class="block mb-2 text-zinc-400">
+        Beschreibung (DE)
+    </label>
+
+    <textarea name="description_de" rows="5"
+        class="w-full bg-zinc-800 rounded-lg p-3">{{ old('description_de', $project->description_de ?? '') }}</textarea>
+
+</div>
+
 
 @if(isset($project) && $project->image)
 

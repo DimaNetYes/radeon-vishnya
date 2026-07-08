@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\Dashboard\ProjectController as DashboardProjectController;
 use App\Http\Controllers\Dashboard\JournalController as DashboardJournalController;
+use App\Http\Controllers\LanguageController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -68,5 +69,8 @@ Route::get('/projects/{slug}', [ProjectController::class, 'show']);
 Route::get('/journal', [JournalEntryController::class, 'index']);
 
 Route::get('/journal/{slug}', [JournalEntryController::class, 'show']);
+
+//Localization
+Route::get('/language/{locale}', [LanguageController::class, 'switch']);
 
 

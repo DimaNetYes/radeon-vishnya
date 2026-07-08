@@ -12,7 +12,7 @@
 
         <h1 class="text-5xl font-bold text-white">
 
-            {{ $project->title }}
+            {{ $project->localized_title }}
 
         </h1>
 
@@ -20,7 +20,7 @@
 
         <p class="text-gray-300 leading-8 text-lg">
 
-            {{ $project->description }}
+            {{ $project->localized_description }}
 
         </p>
             <!-- Project anchor for apk, telegram, browser -->
