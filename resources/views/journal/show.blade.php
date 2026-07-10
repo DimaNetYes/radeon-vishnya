@@ -37,8 +37,8 @@
                 @if($previous)
 
                     <a href="/journal/{{ $previous->slug }}" class="text-red-600 hover:text-red-500">
-                        <p>← Предыдущая</p>
-                        {{ $previous->title }}
+                        <p>{{ __('messages.previous') }}</p>
+                        {{ $previous->localized_title }}
 
                     </a>
 
@@ -51,8 +51,8 @@
                 @if($next)
 
                     <a href="/journal/{{ $next->slug }}" class="text-red-600 hover:text-red-500">
-                        <p> Следующая →</p>
-                        {{ $next->title }} →
+                        <p> {{ __('messages.next') }} </p>
+                        {{ $next->localized_title }} →
 
                     </a>
 
@@ -67,7 +67,7 @@
             <a href="/journal"
                 class="inline-flex items-center gap-2 border border-red-600 text-red-600 px-5 py-3 rounded-lg hover:bg-red-600 hover:text-white transition">
                 
-                ← Все записи
+                {{ __('messages.view_all_posts') }}
 
             </a>
 

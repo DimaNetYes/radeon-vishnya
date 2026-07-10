@@ -10,8 +10,11 @@ return [
     'Learn_more' => 'Read more →',
 
     'read_more' => 'Read more',
-    'view_all_projects' => 'View all projects →',
-    'view_all_journal' => 'Read all articles →',
+
+    //buttons
+    'previous' => '← Previous',
+    'next' => 'Next →',
+    
 
     //section1
     'sec1_main_description' => 'Developer, experimenter, and someone exploring life through code, games, and storytelling.',
@@ -47,5 +50,10 @@ return [
 
     //project
     'All_project' => 'All Projects',
+    'view_all_projects' => 'View all projects →',
+
+    //journal
+    'view_all_journal' => 'Читать все записи →',
+    'view_all_posts' => '← All Posts',
 
 ];

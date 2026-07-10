@@ -10,8 +10,12 @@ return [
     'Learn_more' => 'Подробнее',
 
     'read_more' => 'Подробнее',
-    'view_all_projects' => 'Смотреть все проекты →',
-    'view_all_journal' => 'Читать все записи →',
+
+    //buttons
+    'previous' => '← Предыдущая',
+    'next' => 'Следующая →',
+
+
 
     //section1
     'sec1_main_description' => 'Разработчик, экспериментатор и человек, который пытается разобраться в жизни через код, игры и истории.',
@@ -47,5 +51,10 @@ return [
 
     //project
     'All_project' => 'Все проекты',
+    'view_all_projects' => 'Смотреть все проекты →',
+
+    //journal
+    'view_all_journal' => 'Читать все записи →',
+    'view_all_posts' => '← Все записи',
 
 ];
