@@ -16,18 +16,18 @@
             <h1 class="text-6xl font-bold text-red-100"> {{ $title }}</h1>
 
             <p class="mt-6 text-xl text-red-600">
-                {{ $subtitle}}
+                {{ __('messages.sec1_main_description') }}
             </p>
 
             <p class="mt-4 text-gray-400">
-                {{ $subsubtitle }}
+                {{ __('messages.sec1_main_description_down') }}
             </p>
 
             <div class="mt-10 flex gap-4">
 
                 <a href="/projects"
                     class="bg-red-600 text-white px-6 py-3 rounded-lg transition hover:bg-red-800 hover:text-white">
-                    Проекты
+                    {{ __('messages.projects') }}
                 </a>
 
                 <a href="https://www.youtube.com/@radeonvischnya" target="_blank" rel="noopener noreferrer"
@@ -58,28 +58,27 @@
 
             <div class="py-2">
 
-                <h2 class="font-bold mb-2 text-2xl mt-2">Кто я?</h2>
+                <h2 class="font-bold mb-2 text-2xl mt-2"> {{ __('messages.sec2_who_am_i') }}</h2>
                 <div class="w-10 h-0.5 bg-red-600 rounded mb-2"></div>
 
 
                 <p>
-                    Меня зовут Radeon Вишня.
+                    {{ __('messages.sec2_name') }}
                 </p>
-                <p>Я живу в Германии, работаю, создаю небольшие приложения и мечтаю однажды сделать свою игру.
-                    Этот сайт — мой цифровой гараж, где я собираю всё, что создаю своими руками.
+                <p>{{ __('messages.sec2_description') }}
                 </p>
 
             </div>
 
             <div class="space-y-4 pt-2 pr-5">
 
-                <x-feature-card icon="💻" title="Веб-разработка" description="Создаю сайты и полезные штуки. " />
+                <x-feature-card icon="💻" title="{{ __('messages.sec2_title_web') }}" description="{{ __('messages.sec2_title_desc_web') }} " />
 
-                <x-feature-card icon="🎥" title="Видеопроизводство"
-                    description="Люблю монтаж, съёмку и современные AI-инструменты." />
+                <x-feature-card icon="🎥" title="{{ __('messages.sec2_title_video') }}"
+                    description="{{ __('messages.sec2_title_desc_video') }}" />
 
-                <x-feature-card icon="⛵" title="Игры"
-                    description="Эксперементирую, учусь и делаю свои игры шаг за шагом." />
+                <x-feature-card icon="⛵" title="{{ __('messages.sec2_title_games') }}"
+                    description="{{ __('messages.sec2_title_desc_games') }}" />
 
             </div>
 
@@ -98,12 +97,12 @@
         <div class="flex justify-between items-center mb-5">
 
             <h2 class="text-4xl font-bold text-red-100">
-                Мои проекты
+                {{ __('messages.sec3_my_project') }}
             </h2>
             <hr>
 
             <a href="/projects" class="text-red-600 font-semibold hover:text-red-700 transition">
-                Смотреть все проекты →
+                 {{ __('messages.sec3_all_projects') }}
             </a>
 
         </div>
@@ -128,7 +127,7 @@
             <div>
 
                 <h2 class="text-4xl font-bold text-orange-100">
-                    Бортовой журнал
+                     {{ __('messages.sec4_Logbook') }}
                 </h2>
 
                 <div class="w-10 h-0.5 bg-red-600 rounded my-4"></div>
@@ -144,7 +143,7 @@
                 </div>
 
                 <a href="/journal" class="inline-block mt-8 text-red-600 font-semibold hover:text-red-700 transition">
-                    Читать все записи →
+                    {{ __('messages.sec4_read_posts') }}
                 </a>
 
             </div>
@@ -175,7 +174,7 @@
                             d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
 
                     </svg>
-                    <span>Перейти на канал</span>
+                    <span>{{ __('messages.sec5_Visit_channel') }}</span>
                 </a>
 
             </div>

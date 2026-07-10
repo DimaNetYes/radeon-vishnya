@@ -16,8 +16,18 @@ class YoutubeService
             $url = "https://www.youtube.com/feeds/videos.xml?channel_id={$this->channelId}";
 
             $response = Http::get($url);
+            //if youtube fall
+            if (!$response->successful()) {
+                return collect();
+            }
 
             $xml = simplexml_load_string($response->body());
+            //if youtube fall
+            if ($xml === false) {
+                return collect();
+            }
+            
+            
 
             $entries = [];
 

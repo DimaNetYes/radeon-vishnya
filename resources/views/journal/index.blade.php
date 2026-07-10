@@ -6,7 +6,7 @@
 
     <h1 class="text-5xl font-bold text-white mb-10 text-center">
 
-        Бортовой журнал
+        {{ __('messages.sec4_Logbook') }}
 
     </h1>
 

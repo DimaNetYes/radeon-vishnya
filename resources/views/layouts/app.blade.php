@@ -14,20 +14,53 @@
         <div class="max-w-7xl mx-auto flex justify-between items-center px-5 py-5">
             <div class="text-2xl font-bold">
 
-                <a href="/">🍒 Radeon Vishnya</a>
+                <a href="/">🍒 RV</a>
 
-                <a href="/language/ru" class="border">RU</a>
+                <div class="flex items-center gap-3 text-sm font-medium">
 
-                <a href="/language/en" class="border">EN</a>
+                    <a href="/language/en" class="{{ app()->getLocale() == 'en'
+                                      ? 'text-red-500'
+                                     : 'text-gray-300 hover:text-red-500' }}
+                                         transition">
+
+                        EN
+
+                    </a>
+
+                    <span class="text-gray-600">|</span>
+
+                    <a href="/language/de" class="{{ app()->getLocale() == 'de'
+                                           ? 'text-red-500'
+                                          : 'text-gray-300 hover:text-red-500' }}
+                                           transition">
+
+                        DE
+
+                    </a>
+
+                    <span class="text-gray-600">|</span>
+
+                    <a href="/language/ru" class="{{ app()->getLocale() == 'ru'
+                                       ? 'text-red-500'
+                                      : 'text-gray-300 hover:text-red-500' }}
+                                        transition">
+
+                        RU
+
+                    </a>
+
+                </div>
 
             </div>
 
 
             <nav class="flex gap-8 pr-2 ">
-                <a href="/" class="pb-1 border-b-2 border-transparent hover:border-red-600 transition">{{ __('messages.home') }}</a>
+                <a href="/"
+                    class="pb-1 border-b-2 border-transparent hover:border-red-600 transition">{{ __('messages.home') }}</a>
                 <a href="/projects"
                     class="border-b-2 border-transparent hover:border-red-600 transition">{{ __('messages.projects') }}</a>
-                <a href="/journal" class="border-b-2 border-transparent hover:border-red-600 transition">{{ __('messages.journal') }}</a>
+                <a href="/journal"
+                    class="border-b-2 border-transparent hover:border-red-600 transition">{{ __('messages.journal') }}</a>
                 <a href="https://www.youtube.com/@radeonvischnya/videos"
                     class="border-b-2 border-transparent hover:border-red-600 transition" target="_blank"
                     rel="noopener noreferrer">Youtube</a>
@@ -49,7 +82,7 @@
         <div class="max-w-7xl mx-auto px-8 pt-12 pb-4 ">
 
             <p class="text-center italic text-gray-400 text-3xl text-white">
-                «Интуитивный ориентир только путнику дан.»
+                {{ __('messages.footer_title') }}
             </p>
 
             <div class="max-w-lg h-0.5 bg-red-600 rounded mx-auto my-6"></div>
@@ -59,7 +92,7 @@
             </h2>
 
             <p class="text-center mt-3 text-l text-gray-400">
-                Спасибо, что заглянул на борт! 🍒
+                {{ __('messages.footer_thx') }}
             </p>
 
             <div class="flex justify-center gap-8 mt-8">
@@ -94,7 +127,7 @@
             </div>
 
             <p class="text-center text-sm text-gray-500 mt-10">
-                © {{ date('Y') }} Radeon Vishnya. Все права защищены.
+                © {{ date('Y') }} Radeon Vishnya. {{ __('messages.footer_rights') }}
             </p>
 
         </div>
