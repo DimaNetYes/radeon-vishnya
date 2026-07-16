@@ -3,6 +3,7 @@
 
 <head>
     <title>Radeon Vishnya</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="{{ asset('Fav48x48.png') }}">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -11,16 +12,16 @@
 
     <header id="header"
         class="fixed top-0 left-0 w-full z-50 bg-black/20 backdrop-blur-md border-b border-white/10 text-white shadow-black/20 transition-transform duration-300 ">
-        <div class="max-w-7xl mx-auto flex justify-between items-center px-5 py-5">
-            <div class="text-2xl font-bold">
+        <div class="max-w-7xl mx-auto flex justify-between items-center px-4 md:px-5 py-4 md:py-5">
+            <div class="flex items-center gap-3">
 
-                <a href="/">🍒 RV</a>
+                <a href="/" class="hidden md:block text-2xl font-bold">🍒 RV</a>
 
-                <div class="flex items-center gap-3 text-sm font-medium">
+                <div class="flex items-center gap-2 text-sm font-medium">
 
                     <a href="/language/en" class="{{ app()->getLocale() == 'en'
-                                      ? 'text-red-500'
-                                     : 'text-gray-300 hover:text-red-500' }}
+    ? 'text-red-500'
+    : 'text-gray-300 hover:text-red-500' }}
                                          transition">
 
                         EN
@@ -30,8 +31,8 @@
                     <span class="text-gray-600">|</span>
 
                     <a href="/language/de" class="{{ app()->getLocale() == 'de'
-                                           ? 'text-red-500'
-                                          : 'text-gray-300 hover:text-red-500' }}
+    ? 'text-red-500'
+    : 'text-gray-300 hover:text-red-500' }}
                                            transition">
 
                         DE
@@ -41,8 +42,8 @@
                     <span class="text-gray-600">|</span>
 
                     <a href="/language/ru" class="{{ app()->getLocale() == 'ru'
-                                       ? 'text-red-500'
-                                      : 'text-gray-300 hover:text-red-500' }}
+    ? 'text-red-500'
+    : 'text-gray-300 hover:text-red-500' }}
                                         transition">
 
                         RU
@@ -53,8 +54,17 @@
 
             </div>
 
+            <!-- Button for mobile size -->
+            <button id="mobile-menu-button" class="md:hidden p-2">
+                <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white" fill="none"
+                    viewBox="0 0 24 24" stroke="currentColor">
+                    <path id="menu-path" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
 
-            <nav class="flex gap-8 pr-2 ">
+            <!-- desktop Menu -->
+            <nav class="hidden md:flex gap-8 pr-2">
                 <a href="/"
                     class="pb-1 border-b-2 border-transparent hover:border-red-600 transition">{{ __('messages.home') }}</a>
                 <a href="/projects"
@@ -67,10 +77,56 @@
                 <!-- <a href="/about" class="border-b-2 border-transparent hover:border-red-600 transition">Обо мне</a> -->
             </nav>
 
-
         </div>
 
     </header>
+
+    <!-- Mobile Menu -->
+    <!-- Затемнение -->
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden z-40">
+    </div>
+
+    <div id="mobile-menu"
+        class="fixed top-0 right-0 h-screen w-72 bg-black text-white border-l border-white/10 shadow-2xl translate-x-full transition-transform duration-300 z-50">
+
+        <div class="flex justify-between items-center px-6 py-5 border-b border-white/10">
+            <div class="text-xl font-bold">
+                🍒 RV
+            </div>
+            <button id="mobile-menu-close" class="text-white text-4xl leading-none hover:text-red-500 transition">
+                &times;
+            </button>
+        </div>
+
+        <nav class="flex flex-col pt-4">
+            <!-- request()->is('/') show active menu -->
+            <a href="/"
+                class="px-8 py-5 border-b border-red-900/40 active:bg-red-900/40
+active:scale-95 hover:bg-red-900/20 transition  {{ request()->is('/') ? 'border-l-4 border-l-red-600 bg-red-900/20 text-red-500' : 'hover:bg-red-900/20' }}">
+                🍒 {{ __('messages.home') }}
+
+            </a>
+
+            <a href="/projects"
+                class="px-8 py-5 border-b border-red-900/40 active:bg-red-900/40
+active:scale-95 hover:bg-red-900/20 transition {{ request()->is('projects*') ? 'border-l-4 border-l-red-600 bg-red-900/20 text-red-500' : 'hover:bg-red-900/20' }}">
+                🎮 {{ __('messages.projects') }}
+            </a>
+
+            <a href="/journal"
+                class="px-8 py-5 border-b border-red-900/40 active:bg-red-900/40
+active:scale-95 hover:bg-red-900/20 transition {{ request()->is('journal*') ? 'border-l-4 border-l-red-600 bg-red-900/20 text-red-500' : 'hover:bg-red-900/20' }}">
+                🧭 {{ __('messages.journal') }}
+            </a>
+
+            <a href="https://www.youtube.com/@radeonvischnya/videos" target="_blank" class="px-8 py-5 border-b border-red-900/40 active:bg-red-900/40
+active:scale-95 hover:bg-red-900/20 transition">
+                ▶ Youtube
+            </a>
+        </nav>
+
+    </div>
+
 
     <main class="flex-1 w-full max-w-7xl mx-auto ">
         @yield('content')
