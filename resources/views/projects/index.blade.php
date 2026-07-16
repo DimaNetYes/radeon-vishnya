@@ -14,10 +14,10 @@
         </a>
 
         <h1
-            class="text-center text-5xl font-extrabold mb-10 text-red-500 drop-shadow-2xl tracking-wide [text-shadow:2px_2px_8px_rgba(0,0,0,0.6)]">
+            class="text-center text-3xl md:text-5xl font-extrabold mb-10 text-red-500 drop-shadow-2xl tracking-wide [text-shadow:2px_2px_8px_rgba(0,0,0,0.6)]">
             {{ __('messages.projects') }}</h1>
 
-        <div class="grid grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             @foreach ($projects as $project)
                 <x-project-card :project="$project" />
             @endforeach

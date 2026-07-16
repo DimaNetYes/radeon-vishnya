@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section class="pt-24 pb-12 min-h-screen bg-cover bg-center"
+    <section class="pt-24 pb-12 min-h-screen bg-cover bg-center px-5 md:px-0""
         style="background-image:url('{{ asset('images/backgrounds/bg1.png') }}')">
 
         <!-- Breadcrumbs -->
@@ -13,13 +13,13 @@
             <span>{{ __('messages.back_home') }}</span>
         </a>
 
-        <h1 class="text-5xl font-bold text-white mb-10 text-center">
+        <h1 class="text-3xl md:text-5xl font-bold text-white mb-8 md:mb-10 text-center">
 
             {{ __('messages.sec4_Logbook') }}
 
         </h1>
 
-        <div class="space-y-6">
+        <div class="space-y-4 md:space-y-6">
 
             @foreach($journals as $journal)
 

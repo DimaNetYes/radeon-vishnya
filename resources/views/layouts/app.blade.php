@@ -103,7 +103,7 @@
             <a href="/"
                 class="px-8 py-5 border-b border-red-900/40 active:bg-red-900/40
 active:scale-95 hover:bg-red-900/20 transition  {{ request()->is('/') ? 'border-l-4 border-l-red-600 bg-red-900/20 text-red-500' : 'hover:bg-red-900/20' }}">
-                🍒 {{ __('messages.home') }}
+                🏡 {{ __('messages.home') }}
 
             </a>
 
