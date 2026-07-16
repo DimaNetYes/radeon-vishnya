@@ -2,7 +2,15 @@
 
 @section('content')
 
-    <article class="max-w-5xl mx-auto pt-32 pb-12">
+    <article class="max-w-5xl mx-auto pt-24 pb-12">
+
+        <!-- Breadcrumbs -->
+        <a href="/" class="inline-flex items-center gap-2 text-gray-400 hover:text-red-500 transition md:ml-5 mb-5">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+            <span>{{ __('messages.back_home') }}</span>
+        </a>
 
         <h1 class="text-5xl font-bold text-white">
 
@@ -29,7 +37,7 @@
         </div>
 
 
-                <!-- Previous and next article of journal -->
+        <!-- Previous and next article of journal -->
         <div class="flex justify-between mt-6">
 
             <div>
@@ -66,7 +74,7 @@
 
             <a href="/journal"
                 class="inline-flex items-center gap-2 border border-red-600 text-red-600 px-5 py-3 rounded-lg hover:bg-red-600 hover:text-white transition">
-                
+
                 {{ __('messages.view_all_posts') }}
 
             </a>

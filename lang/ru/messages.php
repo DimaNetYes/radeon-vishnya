@@ -10,6 +10,8 @@ return [
     'Learn_more' => 'Подробнее',
 
     'read_more' => 'Подробнее',
+    'back_home' => 'На главную',
+    
 
     //buttons
     'previous' => '← Предыдущая',

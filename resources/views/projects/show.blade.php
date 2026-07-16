@@ -2,7 +2,15 @@
 
 @section('content')
 
-    <section class="max-w-5xl mx-auto pt-32 pb-20">
+    <section class="max-w-5xl mx-auto pt-24 pb-20">
+
+        <!-- Breadcrumbs -->
+        <a href="/" class="inline-flex items-center gap-2 text-gray-400 hover:text-red-500 transition md:ml-5 mb-5">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+            <span>{{ __('messages.back_home') }}</span>
+        </a>
 
         @if($project->image)
 
@@ -23,7 +31,7 @@
             {{ $project->localized_description }}
 
         </p>
-            <!-- Project anchor for apk, telegram, browser -->
+        <!-- Project anchor for apk, telegram, browser -->
         <div class="flex flex-wrap gap-4 mt-10">
 
             @if($project->telegram_url)
@@ -46,7 +54,7 @@
                     💻 GitHub
                 </a>
             @endif
-        
+
             @if($project->apk_url)
                 <a href="{{ $project->apk_url }}" target="_blank" rel="noopener noreferrer"
                     class="bg-orange-600 text-white px-5 py-3 rounded-lg">

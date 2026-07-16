@@ -10,6 +10,7 @@ return [
     'Learn_more' => 'Weiterlesen →',
 
     'read_more' => 'Read more',
+    'back_home' => 'Zurück zur Startseite',
 
     //buttons
     'previous' => '← Vorherige',
