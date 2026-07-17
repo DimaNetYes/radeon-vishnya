@@ -181,8 +181,17 @@ active:scale-95 hover:bg-red-900/20 transition">
                 </a>
 
             </div>
+                
+                <!-- mailto -->
+            <div class="mt-6 flex justify-center items-center gap-2">
+                <span class="text-gray-600">📧</span>
 
-            <p class="text-center text-sm text-gray-500 mt-10">
+                <a href="mailto:radeonvisna@gmail.com?subject=Hello%20Radeon%20Vishnya&body=Hi%20there!%20%F0%9F%91%8B%0A%0A" class="text-red-500 hover:text-red-400 transition">
+                    radeonvisna@gmail.com
+                </a>
+            </div>
+
+            <p class="text-center text-sm text-gray-500 mt-8">
                 © {{ date('Y') }} Radeon Vishnya. {{ __('messages.footer_rights') }}
             </p>
 
